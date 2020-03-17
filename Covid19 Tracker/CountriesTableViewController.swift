@@ -11,14 +11,29 @@ import UIKit
 class CountriesTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var refreshControl: UIRefreshControl!
     
+    var refreshControl: UIRefreshControl!    
     var covidDataArray = [CovidData]()
+    var filteredCountries = [CovidData]()
+    
+    lazy var searchController: UISearchController = {
+        let s = UISearchController(searchResultsController: nil)
+        s.searchResultsUpdater = self
+        s.obscuresBackgroundDuringPresentation = false
+        s.searchBar.placeholder = "Search Countries"
+        s.searchBar.sizeToFit()
+        s.searchBar.searchBarStyle = .prominent
+//        s.searchBar.scopeButtonTitles = ["All", "Most Cases", "Most Deaths", "Most Recovered"]
+        s.searchBar.delegate = self
+        
+        return s
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
         
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -49,6 +64,29 @@ class CountriesTableViewController: UIViewController {
         }
     }
     
+    private func filteredContentForSearchedText(searchText: String, scope: String = "All") {
+        filteredCountries = covidDataArray.filter({ (covidData: CovidData) -> Bool in
+            let doesCategoryMatch = (scope == "All")
+            
+            if isSearchBarEmpty() {
+                return doesCategoryMatch
+            } else {
+                return doesCategoryMatch && covidData.country.lowercased().contains(searchText.lowercased())
+            }
+        })
+        
+        tableView.reloadData()
+    }
+    
+    private func isSearchBarEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private func isFiltering() -> Bool {
+//        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
+        return searchController.isActive && (!isSearchBarEmpty())
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "countryDetailSegue" {
             guard let detailVC = segue.destination as? CountryDetailViewController else { return }
@@ -64,21 +102,54 @@ class CountriesTableViewController: UIViewController {
 
 extension CountriesTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering() {
+            return filteredCountries.count
+        }
         return covidDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath)
-        let covidData = covidDataArray[indexPath.row]
         
-        cell.textLabel?.text = covidData.country
+        let currentData: CovidData
+        
+        if isFiltering() {
+            currentData = filteredCountries[indexPath.row]
+        } else {
+            currentData = covidDataArray[indexPath.row]
+        }
+        
+        cell.textLabel?.text = currentData.country
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCountry = covidDataArray[indexPath.row]
-        let senderData: [String : Any] = ["selectedCountry": selectedCountry]
+        let currentData: CovidData
+        if isFiltering() {
+            currentData = filteredCountries[indexPath.row]
+        } else {
+            currentData = covidDataArray[indexPath.row]
+        }
+        
+        let senderData: [String : Any] = ["selectedCountry": currentData]
         performSegue(withIdentifier: "countryDetailSegue", sender: senderData)
     }
 }
 
+extension CountriesTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        guard let searchText = searchBar.text else { return }
+//        guard let scopes = searchBar.scopeButtonTitles else { return }
+        filteredContentForSearchedText(searchText: searchText)
+    }
+}
+
+extension CountriesTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+//        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        
+        guard let searchText = searchController.searchBar.text else { return }
+        filteredContentForSearchedText(searchText: searchText)
+    }
+}
