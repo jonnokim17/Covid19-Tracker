@@ -1,24 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sAF-cO-52s">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Item 2-->
+        <scene sceneID="XVU-wO-rjP">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="S6d-8Q-fef" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sVJ-dT-yMG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="j69-zF-RgW"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="W3a-QV-JzL"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GES-5n-2cw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1356" y="825"/>
+        </scene>
+        <!--Countries-->
+        <scene sceneID="vhL-0u-SvD">
+            <objects>
+                <viewController id="SfB-R6-3ni" customClass="CountriesTableViewController" customModule="Covid19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FKy-ie-PuQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hyr-xc-C6F">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryCell" id="Gvf-uk-BBa">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gvf-uk-BBa" id="Nyg-Eg-JIS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SfB-R6-3ni" id="YaO-am-cVA"/>
+                                    <outlet property="delegate" destination="SfB-R6-3ni" id="eda-jp-XpF"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2yB-lS-1PU" firstAttribute="bottom" secondItem="hyr-xc-C6F" secondAttribute="bottom" id="Gmc-AG-u4D"/>
+                            <constraint firstItem="hyr-xc-C6F" firstAttribute="top" secondItem="2yB-lS-1PU" secondAttribute="top" id="aOg-TY-6wD"/>
+                            <constraint firstItem="2yB-lS-1PU" firstAttribute="trailing" secondItem="hyr-xc-C6F" secondAttribute="trailing" id="flP-yj-zpC"/>
+                            <constraint firstItem="hyr-xc-C6F" firstAttribute="leading" secondItem="2yB-lS-1PU" secondAttribute="leading" id="w5G-dZ-B3b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2yB-lS-1PU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Countries" id="5Yv-jI-C81"/>
+                    <connections>
+                        <outlet property="tableView" destination="hyr-xc-C6F" id="f1t-DY-Vrw"/>
+                        <segue destination="DEs-SQ-qTS" kind="show" identifier="countryDetailSegue" id="7kj-Tw-Lxg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uk-7c-1ZX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2103" y="177"/>
+        </scene>
+        <!--China-->
+        <scene sceneID="mTh-nc-wcK">
+            <objects>
+                <viewController id="DEs-SQ-qTS" customClass="CountryDetailViewController" customModule="Covid19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wDr-50-tsq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r16-Ju-ZEs">
+                                <rect key="frame" x="20" y="112" width="374" height="191.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cases: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-r8-hyz">
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Cases: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-Y1-8sV">
+                                        <rect key="frame" x="0.0" y="28.5" width="147.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deaths: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubv-JX-0Sr">
+                                        <rect key="frame" x="0.0" y="57" width="92" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Deaths: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPd-AG-cup">
+                                        <rect key="frame" x="0.0" y="85.5" width="154.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovered: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2f-5b-V58">
+                                        <rect key="frame" x="0.0" y="114" width="118.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKS-5f-kQO">
+                                        <rect key="frame" x="0.0" y="142.5" width="84.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Critical Cases: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5k-hd-a1P">
+                                        <rect key="frame" x="0.0" y="171" width="142" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1Uj-fA-My4" firstAttribute="trailing" secondItem="r16-Ju-ZEs" secondAttribute="trailing" constant="20" id="SwM-gZ-Ph9"/>
+                            <constraint firstItem="r16-Ju-ZEs" firstAttribute="top" secondItem="1Uj-fA-My4" secondAttribute="top" constant="24" id="Xwm-xg-Cxg"/>
+                            <constraint firstItem="r16-Ju-ZEs" firstAttribute="leading" secondItem="1Uj-fA-My4" secondAttribute="leading" constant="20" id="hjS-Za-hcD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Uj-fA-My4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="China" id="7U3-nI-d3I"/>
+                    <connections>
+                        <outlet property="activeLabel" destination="HKS-5f-kQO" id="HI8-oY-HB5"/>
+                        <outlet property="casesLabel" destination="ZPj-r8-hyz" id="fdg-BS-6WK"/>
+                        <outlet property="criticalCasesLabel" destination="S5k-hd-a1P" id="hTQ-dc-PLI"/>
+                        <outlet property="deathsLabel" destination="Ubv-JX-0Sr" id="fS5-rA-GRJ"/>
+                        <outlet property="recoveredLabel" destination="m2f-5b-V58" id="XhG-dE-NcT"/>
+                        <outlet property="todaysCasesLabel" destination="ckv-Y1-8sV" id="LE8-1N-R9d"/>
+                        <outlet property="todaysDeathLabel" destination="RPd-AG-cup" id="69d-Yc-zDN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vlZ-6Q-YsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2808.6956521739135" y="176.78571428571428"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xQ9-XH-sLe">
+            <objects>
+                <tabBarController id="sAF-cO-52s" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2j3-Oq-UAx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="4wz-8M-u5U" kind="relationship" relationship="viewControllers" id="X4k-BS-eF4"/>
+                        <segue destination="S6d-8Q-fef" kind="relationship" relationship="viewControllers" id="bfp-gk-Tu9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dzl-iN-D2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="436" y="501"/>
+        </scene>
+        <!--Countries-->
+        <scene sceneID="tIx-m1-8Qv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4wz-8M-u5U" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Countries" image="list.bullet" catalog="system" id="AoK-lP-L4q"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lSc-sB-DeP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SfB-R6-3ni" kind="relationship" relationship="rootViewController" id="faY-Q5-Gsp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XHI-UC-f1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1355.072463768116" y="177.45535714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.bullet" catalog="system" width="64" height="44"/>
+    </resources>
 </document>
