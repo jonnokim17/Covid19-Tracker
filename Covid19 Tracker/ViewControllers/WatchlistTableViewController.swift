@@ -16,7 +16,7 @@ class WatchlistTableViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(watchlistUpdated), name: Notification.Name("WatchlistUpdated"), object: nil)
         tableView.reloadData()
     }
@@ -45,6 +45,18 @@ class WatchlistTableViewController: UIViewController {
             usv.append(UnicodeScalar(base + Int(i))!)
         }
         return String(usv)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "watchlistDetailSegue" {
+            guard let detailVC = segue.destination as? CountryDetailViewController else { return }
+            
+            if let data = sender as? [String: Any] {
+                if let covidData = data["selectedCountry"] as? CovidData {
+                    detailVC.covidData = covidData
+                }
+            }
+        }
     }
 }
 
@@ -75,5 +87,10 @@ extension WatchlistTableViewController: UITableViewDelegate, UITableViewDataSour
             CovidDataClient.shared.watchlistData = currentWatchList
             tableView.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let senderData: [String : Any] = ["selectedCountry": CovidDataClient.shared.watchlistData[indexPath.row]]
+        performSegue(withIdentifier: "watchlistDetailSegue", sender: senderData)
     }
 }
