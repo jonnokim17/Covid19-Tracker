@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Global COVID-19 Info-->
+        <!--Global COVID-19 Data-->
         <scene sceneID="XVU-wO-rjP">
             <objects>
                 <viewController id="S6d-8Q-fef" customClass="WorldwideDataViewController" customModule="Covid19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j69-zF-RgW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Global COVID-19 Info" id="Tsa-gY-ve3">
+                    <navigationItem key="navigationItem" title="Global COVID-19 Data" id="Tsa-gY-ve3">
                         <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="R13-TC-xtf">
                             <connections>
                                 <action selector="onRefreshData:" destination="S6d-8Q-fef" id="2or-CW-0xS"/>
