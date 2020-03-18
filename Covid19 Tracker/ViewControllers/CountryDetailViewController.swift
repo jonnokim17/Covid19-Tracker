@@ -27,6 +27,7 @@ class CountryDetailViewController: UIViewController {
     }
     
     private func setupUI() {
+        title = covidData.country        
         casesLabel.text = "Total Cases: \(covidData.cases.withCommas())"
         todaysCasesLabel.text = "Today's Cases: \(covidData.todayCases.withCommas())"
         deathsLabel.text = "Deaths: \(covidData.deaths.withCommas())"
