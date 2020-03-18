@@ -21,7 +21,7 @@ class CountriesTableViewController: UIViewController {
         let s = UISearchController(searchResultsController: nil)
         s.searchResultsUpdater = self
         s.obscuresBackgroundDuringPresentation = false
-        s.searchBar.placeholder = "Search Countries"
+        s.searchBar.placeholder = "Search Countries..."
         s.searchBar.sizeToFit()
         s.searchBar.searchBarStyle = .prominent
 //        s.searchBar.scopeButtonTitles = ["All", "Most Cases", "Most Deaths", "Most Recovered"]
