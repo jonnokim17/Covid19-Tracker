@@ -13,11 +13,16 @@ class WorldwideDataViewController: UIViewController {
     @IBOutlet weak var totalCasesLabel: UILabel!
     @IBOutlet weak var totalDeathsLabel: UILabel!
     @IBOutlet weak var totalRecoveredLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.startAnimating()
         CovidDataClient.shared.getWorldwideData { [weak self] (result) in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+            }
             switch result {
             case .success(let worldWideData):
                 DispatchQueue.main.async {

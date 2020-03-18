@@ -45,6 +45,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="j80-8N-J4a">
+                                <rect key="frame" x="188.5" y="432" width="37" height="37"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGh-2P-M2d">
                                 <rect key="frame" x="20" y="235" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -67,6 +70,8 @@
                             <constraint firstItem="cGh-2P-M2d" firstAttribute="top" secondItem="HNY-DT-eZn" secondAttribute="bottom" constant="8" id="T8g-pd-BOM"/>
                             <constraint firstItem="cGh-2P-M2d" firstAttribute="leading" secondItem="j69-zF-RgW" secondAttribute="leading" constant="20" id="TgH-9j-43X"/>
                             <constraint firstItem="RNm-EH-dhc" firstAttribute="top" secondItem="j69-zF-RgW" secondAttribute="top" constant="28" id="Vfu-6K-GMp"/>
+                            <constraint firstItem="j80-8N-J4a" firstAttribute="centerX" secondItem="j69-zF-RgW" secondAttribute="centerX" id="Z0Y-w9-Ndx"/>
+                            <constraint firstItem="j80-8N-J4a" firstAttribute="centerY" secondItem="j69-zF-RgW" secondAttribute="centerY" id="d8U-28-RJ0"/>
                             <constraint firstItem="VlC-0d-JrA" firstAttribute="leading" secondItem="j69-zF-RgW" secondAttribute="leading" constant="20" id="hMA-lf-jnf"/>
                             <constraint firstItem="j69-zF-RgW" firstAttribute="trailing" secondItem="M0Z-ab-2pE" secondAttribute="trailing" constant="20" id="kIT-rj-Jn8"/>
                             <constraint firstItem="M0Z-ab-2pE" firstAttribute="leading" secondItem="j69-zF-RgW" secondAttribute="leading" constant="20" id="qwZ-VU-iDW"/>
@@ -77,6 +82,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Worldwide" id="Tsa-gY-ve3"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="j80-8N-J4a" id="gDa-HK-93U"/>
                         <outlet property="totalCasesLabel" destination="M0Z-ab-2pE" id="mdr-mR-8nF"/>
                         <outlet property="totalDeathsLabel" destination="cGh-2P-M2d" id="IqR-u6-v1U"/>
                         <outlet property="totalRecoveredLabel" destination="VlC-0d-JrA" id="9np-0f-zOf"/>
