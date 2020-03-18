@@ -39,6 +39,22 @@ struct CovidData {
     }
 }
 
+struct WorldwideData {
+    let cases: Int
+    let deaths: Int
+    let recovered: Int
+    
+    init(json: [String: Any]) {
+        let cases = json["cases"] as? Int ?? 0
+        let deaths = json["deaths"] as? Int ?? 0
+        let recovered = json["recovered"] as? Int ?? 0
+        
+        self.cases = cases
+        self.deaths = deaths
+        self.recovered = recovered
+    }
+}
+
 class CovidDataClient {
     static let shared = CovidDataClient()
     
@@ -52,6 +68,18 @@ class CovidDataClient {
         
         let request = setupRequest(method: "GET", url: url, bodyData: nil)
         getData(request: request, completion: completion)
+    }
+    
+    func getWorldwideData(completion: @escaping (Result<WorldwideData, Error>) -> Void ) {
+        let urlString = "https://coronavirus-19-api.herokuapp.com/all"
+        
+        guard let url = URL(string: urlString) else {
+            let error = NSError(domain: "", code: -1, userInfo: nil)
+            return completion(.failure(error))
+        }
+        
+        let request = setupRequest(method: "GET", url: url, bodyData: nil)
+        getWorldwideData(request: request, completion: completion)
     }
     
     fileprivate func setupRequest(method: String, url: URL, bodyData: Data?) -> URLRequest {
@@ -94,6 +122,42 @@ class CovidDataClient {
                 }
                 
                 completion(.success(covidDataArray))
+                
+            } catch let error {
+                print(error)
+                return
+            }
+        }
+        task.resume()
+    }
+    
+    fileprivate func getWorldwideData(request: URLRequest, completion: @escaping (Result<WorldwideData, Error>) -> Void) {
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let error = NSError(domain: "", code: -1, userInfo: nil)
+            guard let response = response as? HTTPURLResponse else {
+                return completion(.failure(error))
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                guard (200 ..< 300) ~= response.statusCode else {
+                    switch response.statusCode {
+                    case 400:
+                        return completion(.failure(error))
+                    case 401:
+                        return completion(.failure(error))
+                    default:
+                        return completion(.failure(error))
+                    }
+                }
+                
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    let worldWideData = WorldwideData(json: json)
+                    completion(.success(worldWideData))
+                }
                 
             } catch let error {
                 print(error)
