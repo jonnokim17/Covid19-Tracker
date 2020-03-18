@@ -18,11 +18,27 @@ class WatchlistTableViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(watchlistUpdated), name: Notification.Name("WatchlistUpdated"), object: nil)
-        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        CovidDataClient.shared.getCovidData { (result) in
+            switch result {
+            case .success(let covidDataArray):
+                let filteredWatchlist = covidDataArray.filter { (covidData) -> Bool in
+                    CovidDataClient.shared.watchlistData.contains(where: { $0.country == covidData.country })
+                }
+                
+                CovidDataClient.shared.watchlistData = filteredWatchlist
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         if let selectionIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectionIndexPath, animated: animated)
@@ -30,7 +46,9 @@ class WatchlistTableViewController: UIViewController {
     }
     
     @objc private func watchlistUpdated() {
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     //TODO: move these functions into extension
