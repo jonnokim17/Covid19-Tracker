@@ -139,10 +139,15 @@
                                     <outlet property="delegate" destination="SfB-R6-3ni" id="eda-jp-XpF"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gDv-VG-Nke">
+                                <rect key="frame" x="188.5" y="432" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="gDv-VG-Nke" firstAttribute="centerX" secondItem="hyr-xc-C6F" secondAttribute="centerX" id="1Bk-X2-twI"/>
                             <constraint firstItem="2yB-lS-1PU" firstAttribute="bottom" secondItem="hyr-xc-C6F" secondAttribute="bottom" id="Gmc-AG-u4D"/>
+                            <constraint firstItem="gDv-VG-Nke" firstAttribute="centerY" secondItem="hyr-xc-C6F" secondAttribute="centerY" id="HQR-Jn-xtb"/>
                             <constraint firstItem="hyr-xc-C6F" firstAttribute="top" secondItem="2yB-lS-1PU" secondAttribute="top" id="aOg-TY-6wD"/>
                             <constraint firstItem="2yB-lS-1PU" firstAttribute="trailing" secondItem="hyr-xc-C6F" secondAttribute="trailing" id="flP-yj-zpC"/>
                             <constraint firstItem="hyr-xc-C6F" firstAttribute="leading" secondItem="2yB-lS-1PU" secondAttribute="leading" id="w5G-dZ-B3b"/>
@@ -151,6 +156,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Countries" id="5Yv-jI-C81"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="gDv-VG-Nke" id="L22-hT-R1V"/>
                         <outlet property="tableView" destination="hyr-xc-C6F" id="f1t-DY-Vrw"/>
                         <segue destination="DEs-SQ-qTS" kind="show" identifier="countryDetailSegue" id="7kj-Tw-Lxg"/>
                     </connections>
@@ -390,6 +396,6 @@
         <image name="globe" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zp1-eF-QqZ"/>
+        <segue reference="7kj-Tw-Lxg"/>
     </inferredMetricsTieBreakers>
 </document>

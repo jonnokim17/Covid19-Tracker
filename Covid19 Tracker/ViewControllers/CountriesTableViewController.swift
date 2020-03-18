@@ -11,6 +11,7 @@ import UIKit
 class CountriesTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var refreshControl: UIRefreshControl!    
     var covidDataArray = [CovidData]()
@@ -49,7 +50,12 @@ class CountriesTableViewController: UIViewController {
     }
     
     private func getCovidDataAndRefreshData() {
+        activityIndicator.startAnimating()
         CovidDataClient.shared.getCovidData { [weak self] (result) in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.refreshControl.endRefreshing()
+            }
             switch result {
             case .success(let covidDataArray):
                 self?.covidDataArray = covidDataArray.sorted(by: { $0.cases > $1.cases })
@@ -58,8 +64,7 @@ class CountriesTableViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
-                self?.refreshControl.endRefreshing()
+                self?.tableView.reloadData()                
             }
         }
     }
