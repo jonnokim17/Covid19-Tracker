@@ -55,6 +55,25 @@ struct WorldwideData {
     }
 }
 
+struct GraphData {
+    let date: String
+    let confirmed: Int
+    let deaths: Int
+    let recovered: Int
+    
+    init(json: [String: Any]) {
+        let date = json["date"] as? String ?? ""
+        let confirmed = json["confirmed"] as? Int ?? 0
+        let deaths = json["deaths"] as? Int ?? 0
+        let recovered = json["recovered"] as? Int ?? 0
+        
+        self.date = date
+        self.confirmed = confirmed
+        self.deaths = deaths
+        self.recovered = recovered
+    }
+}
+
 class CovidDataClient {
     static let shared = CovidDataClient()
     private let watchlistDataKey = "watch_list_key"
@@ -76,6 +95,18 @@ class CovidDataClient {
                 NotificationCenter.default.post(name: Notification.Name("WatchlistUpdated"), object: nil)
             }
         }
+    }
+    
+    func getFiveDayData(country: String, completion: @escaping (Result<[GraphData], Error>) -> Void ) {
+        let urlString = "https://pomber.github.io/covid19/timeseries.json"
+        
+        guard let url = URL(string: urlString) else {
+            let error = NSError(domain: "", code: -1, userInfo: nil)
+            return completion(.failure(error))
+        }
+        
+        let request = setupRequest(method: "GET", url: url, bodyData: nil)
+        fetchFiveDayData(country: country, request: request, completion: completion)
     }
  
     func getCovidData(completion: @escaping (Result<[CovidData], Error>) -> Void ) {
@@ -109,6 +140,64 @@ class CovidDataClient {
         request.httpMethod = method
         request.httpBody = bodyData
         return request
+    }
+    
+    fileprivate func fetchFiveDayData(country: String, request: URLRequest, completion: @escaping (Result<[GraphData], Error>) -> Void) {
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            var fiveDayDataArray: [GraphData] = []
+            let error = NSError(domain: "", code: -1, userInfo: nil)
+            guard let response = response as? HTTPURLResponse else {
+                return completion(.failure(error))
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                guard (200 ..< 300) ~= response.statusCode else {
+                    switch response.statusCode {
+                    case 400:
+                        return completion(.failure(error))
+                    case 401:
+                        return completion(.failure(error))
+                    default:
+                        return completion(.failure(error))
+                    }
+                }
+                
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    var formattedCountry: String
+                    if country == "S. Korea" {
+                        formattedCountry = "Korea, South"
+                    } else if country == "USA" {
+                        formattedCountry = "US"
+                    } else if country == "UAE" {
+                        formattedCountry = "United Arab Emirates"
+                    } else if country == "UK" {
+                        formattedCountry = "United Kingdom"
+                    } else if country == "Taiwan" {
+                        formattedCountry = "Taiwan*"
+                    } else {
+                        formattedCountry = country
+                    }
+                    if let jsonArray = json[formattedCountry] as? [[String: Any]] {
+                        let range = jsonArray.index(jsonArray.endIndex, offsetBy: -5) ..< jsonArray.endIndex
+                        let slicedJsonArray = jsonArray[range]
+                        for dict in slicedJsonArray {
+                            fiveDayDataArray.append(GraphData(json: dict))
+                        }
+                    }
+                }
+                
+                completion(.success(fiveDayDataArray))
+                
+            } catch let error {
+                print(error)
+                return
+            }
+        }
+        task.resume()
     }
     
     fileprivate func getData(request: URLRequest, completion: @escaping (Result<[CovidData], Error>) -> Void) {

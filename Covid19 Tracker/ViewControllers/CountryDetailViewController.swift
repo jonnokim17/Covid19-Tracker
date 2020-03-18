@@ -19,11 +19,20 @@ class CountryDetailViewController: UIViewController {
     @IBOutlet weak var criticalCasesLabel: UILabel!
     
     var covidData: CovidData!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
+        
+//        CovidDataClient.shared.getFiveDayData(country: covidData.country) { (result) in
+//            switch result {
+//            case .success(let graphDataArray):
+//                print(graphDataArray)                
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     private func setupUI() {
