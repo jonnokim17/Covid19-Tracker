@@ -52,7 +52,7 @@ class CountriesTableViewController: UIViewController {
         CovidDataClient.shared.getCovidData { [weak self] (result) in
             switch result {
             case .success(let covidDataArray):
-                self?.covidDataArray = covidDataArray
+                self?.covidDataArray = covidDataArray.sorted(by: { $0.cases > $1.cases })
             case .failure(let error):
                 print(error)
             }
@@ -87,6 +87,27 @@ class CountriesTableViewController: UIViewController {
         return searchController.isActive && (!isSearchBarEmpty())
     }
     
+    private func locale(for fullCountryName : String) -> String {
+        let locales : String = ""
+        for localeCode in NSLocale.isoCountryCodes {
+            let identifier = NSLocale(localeIdentifier: localeCode)
+            let countryName = identifier.displayName(forKey: NSLocale.Key.countryCode, value: localeCode)
+            if fullCountryName.lowercased() == countryName?.lowercased() {
+                return localeCode
+            }
+        }
+        return locales
+    }
+    
+    private func flag(country:String) -> String {
+        let base = 127397
+        var usv = String.UnicodeScalarView()
+        for i in country.utf16 {
+            usv.append(UnicodeScalar(base + Int(i))!)
+        }
+        return String(usv)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "countryDetailSegue" {
             guard let detailVC = segue.destination as? CountryDetailViewController else { return }
@@ -119,7 +140,10 @@ extension CountriesTableViewController: UITableViewDelegate, UITableViewDataSour
             currentData = covidDataArray[indexPath.row]
         }
         
-        cell.textLabel?.text = currentData.country
+        let countryCode = locale(for: currentData.country)
+        cell.textLabel?.text = "\(currentData.country) \(flag(country: countryCode))"                
+        cell.detailTextLabel?.text = "Confirmed Cases: \(currentData.cases)"
+        
         return cell
     }
     
@@ -146,7 +170,7 @@ extension CountriesTableViewController: UISearchBarDelegate {
 
 extension CountriesTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
+//        let searchBar = searchController.searchBar
 //        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         
         guard let searchText = searchController.searchBar.text else { return }
