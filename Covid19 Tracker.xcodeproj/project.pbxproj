@@ -18,6 +18,7 @@
 		90DBEFEC2421532A002C4110 /* CovidDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEFEB2421532A002C4110 /* CovidDataClient.swift */; };
 		90DBEFEE2421859B002C4110 /* CountryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEFED2421859B002C4110 /* CountryDetailViewController.swift */; };
 		90DBEFF02421A2CC002C4110 /* WorldwideDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEFEF2421A2CC002C4110 /* WorldwideDataViewController.swift */; };
+		90DBEFF22421A7AD002C4110 /* Extension+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEFF12421A7AD002C4110 /* Extension+Int.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		90DBEFEB2421532A002C4110 /* CovidDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDataClient.swift; sourceTree = "<group>"; };
 		90DBEFED2421859B002C4110 /* CountryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewController.swift; sourceTree = "<group>"; };
 		90DBEFEF2421A2CC002C4110 /* WorldwideDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldwideDataViewController.swift; sourceTree = "<group>"; };
+		90DBEFF12421A7AD002C4110 /* Extension+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Int.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +109,9 @@
 			children = (
 				90DBEFBB24215214002C4110 /* AppDelegate.swift */,
 				90DBEFBD24215214002C4110 /* SceneDelegate.swift */,
-				90DBEFBF24215214002C4110 /* CountriesTableViewController.swift */,
-				90DBEFED2421859B002C4110 /* CountryDetailViewController.swift */,
-				90DBEFEF2421A2CC002C4110 /* WorldwideDataViewController.swift */,
-				90DBEFEB2421532A002C4110 /* CovidDataClient.swift */,
+				90DBEFF32421A7B3002C4110 /* Extensions */,
+				90DBEFF42421A7BB002C4110 /* ViewControllers */,
+				90DBEFF52421A7C6002C4110 /* Model */,
 				90DBEFC124215214002C4110 /* Main.storyboard */,
 				90DBEFC424215215002C4110 /* Assets.xcassets */,
 				90DBEFC624215215002C4110 /* LaunchScreen.storyboard */,
@@ -135,6 +136,32 @@
 				90DBEFDF24215215002C4110 /* Info.plist */,
 			);
 			path = "Covid19 TrackerUITests";
+			sourceTree = "<group>";
+		};
+		90DBEFF32421A7B3002C4110 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				90DBEFF12421A7AD002C4110 /* Extension+Int.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		90DBEFF42421A7BB002C4110 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				90DBEFBF24215214002C4110 /* CountriesTableViewController.swift */,
+				90DBEFED2421859B002C4110 /* CountryDetailViewController.swift */,
+				90DBEFEF2421A2CC002C4110 /* WorldwideDataViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		90DBEFF52421A7C6002C4110 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90DBEFEB2421532A002C4110 /* CovidDataClient.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +298,7 @@
 				90DBEFC024215214002C4110 /* CountriesTableViewController.swift in Sources */,
 				90DBEFBC24215214002C4110 /* AppDelegate.swift in Sources */,
 				90DBEFF02421A2CC002C4110 /* WorldwideDataViewController.swift in Sources */,
+				90DBEFF22421A7AD002C4110 /* Extension+Int.swift in Sources */,
 				90DBEFEC2421532A002C4110 /* CovidDataClient.swift in Sources */,
 				90DBEFEE2421859B002C4110 /* CountryDetailViewController.swift in Sources */,
 				90DBEFBE24215214002C4110 /* SceneDelegate.swift in Sources */,

@@ -27,12 +27,12 @@ class CountryDetailViewController: UIViewController {
     }
     
     private func setupUI() {
-        casesLabel.text = "Total Cases: \(covidData.cases)"
-        todaysCasesLabel.text = "Today's Cases: \(covidData.todayCases)"
-        deathsLabel.text = "Deaths: \(covidData.deaths)"
-        todaysDeathLabel.text = "Today's Death: \(covidData.todayDeaths)"
-        recoveredLabel.text = "Recovered: \(covidData.recovered)"
-        activeLabel.text = "Active: \(covidData.active)"
-        criticalCasesLabel.text = "Confirmed Cases: \(covidData.critical)"
+        casesLabel.text = "Total Cases: \(covidData.cases.withCommas())"
+        todaysCasesLabel.text = "Today's Cases: \(covidData.todayCases.withCommas())"
+        deathsLabel.text = "Deaths: \(covidData.deaths.withCommas())"
+        todaysDeathLabel.text = "Today's Death: \(covidData.todayDeaths.withCommas())"
+        recoveredLabel.text = "Recovered: \(covidData.recovered.withCommas())"
+        activeLabel.text = "Active: \(covidData.active.withCommas())"
+        criticalCasesLabel.text = "Confirmed Cases: \(covidData.critical.withCommas())"
     }
 }

@@ -21,9 +21,9 @@ class WorldwideDataViewController: UIViewController {
             switch result {
             case .success(let worldWideData):
                 DispatchQueue.main.async {
-                    self?.totalCasesLabel.text = "\(worldWideData.cases)"
-                    self?.totalDeathsLabel.text = "\(worldWideData.deaths)"
-                    self?.totalRecoveredLabel.text = "\(worldWideData.recovered)"
+                    self?.totalCasesLabel.text = "\(worldWideData.cases.withCommas())"
+                    self?.totalDeathsLabel.text = "\(worldWideData.deaths.withCommas())"
+                    self?.totalRecoveredLabel.text = "\(worldWideData.recovered.withCommas())"
                 }
             case .failure(let error):
                 print(error)

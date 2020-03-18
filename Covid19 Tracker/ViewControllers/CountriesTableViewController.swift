@@ -142,7 +142,7 @@ extension CountriesTableViewController: UITableViewDelegate, UITableViewDataSour
         
         let countryCode = locale(for: currentData.country)
         cell.textLabel?.text = "\(currentData.country) \(flag(country: countryCode))"                
-        cell.detailTextLabel?.text = "Confirmed Cases: \(currentData.cases)"
+        cell.detailTextLabel?.text = "Confirmed Cases: \(currentData.cases.withCommas())"
         
         return cell
     }
