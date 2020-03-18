@@ -80,7 +80,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j69-zF-RgW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Worldwide" id="Tsa-gY-ve3"/>
+                    <navigationItem key="navigationItem" title="Worldwide" id="Tsa-gY-ve3">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="R13-TC-xtf">
+                            <connections>
+                                <action selector="onRefreshData:" destination="S6d-8Q-fef" id="2or-CW-0xS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="j80-8N-J4a" id="gDa-HK-93U"/>
                         <outlet property="totalCasesLabel" destination="M0Z-ab-2pE" id="mdr-mR-8nF"/>
@@ -290,6 +296,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
         <image name="globe" catalog="system" width="64" height="60"/>
         <image name="list.bullet" catalog="system" width="64" height="44"/>
     </resources>

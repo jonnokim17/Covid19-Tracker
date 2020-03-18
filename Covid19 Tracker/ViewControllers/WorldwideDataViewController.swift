@@ -18,6 +18,10 @@ class WorldwideDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getDataAndUpdateUI()
+    }
+    
+    private func getDataAndUpdateUI() {
         activityIndicator.startAnimating()
         CovidDataClient.shared.getWorldwideData { [weak self] (result) in
             DispatchQueue.main.async {
@@ -34,5 +38,9 @@ class WorldwideDataViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    @IBAction func onRefreshData(_ sender: UIBarButtonItem) {
+        getDataAndUpdateUI()
     }
 }
