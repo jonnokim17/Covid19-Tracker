@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5FB6A6D7145A51B22422D91F /* Pods_Covid19_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5A5AB1FB28D71513BB02A /* Pods_Covid19_TrackerTests.framework */; };
+		9021641E24227B0F00DBAEC8 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9021641D24227B0F00DBAEC8 /* Extension+String.swift */; };
 		90C77E612421AE1900119661 /* WatchlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C77E602421AE1900119661 /* WatchlistTableViewController.swift */; };
 		90CDDB2C2421D90900D1AB47 /* MacawChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDDB2B2421D90900D1AB47 /* MacawChartView.swift */; };
 		90DBEFBC24215214002C4110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEFBB24215214002C4110 /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		5EF5A5AB1FB28D71513BB02A /* Pods_Covid19_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80DE069C801E2C20C5A338BA /* Pods_Covid19_Tracker_Covid19_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid19_Tracker_Covid19_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D454A952B646A9ABF5B747 /* Pods-Covid19 TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid19 TrackerTests.release.xcconfig"; path = "Target Support Files/Pods-Covid19 TrackerTests/Pods-Covid19 TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		9021641D24227B0F00DBAEC8 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		90C77E602421AE1900119661 /* WatchlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewController.swift; sourceTree = "<group>"; };
 		90CDDB2B2421D90900D1AB47 /* MacawChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacawChartView.swift; sourceTree = "<group>"; };
 		90DBEFB824215214002C4110 /* Covid19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				90DBEFF12421A7AD002C4110 /* Extension+Int.swift */,
+				9021641D24227B0F00DBAEC8 /* Extension+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9021641E24227B0F00DBAEC8 /* Extension+String.swift in Sources */,
 				90DBEFC024215214002C4110 /* CountriesTableViewController.swift in Sources */,
 				90DBEFBC24215214002C4110 /* AppDelegate.swift in Sources */,
 				90C77E612421AE1900119661 /* WatchlistTableViewController.swift in Sources */,

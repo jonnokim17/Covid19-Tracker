@@ -220,22 +220,26 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGu-L0-vmE" customClass="MacawChartView" customModule="Covid19_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="343.5" width="374" height="374"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="LGu-L0-vmE" secondAttribute="height" multiplier="1:1" id="NcX-r0-fjK"/>
-                                </constraints>
-                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="sHF-fM-A68">
+                                <rect key="frame" x="188.5" y="432" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5-Day Trend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-Rg-uyn">
+                                <rect key="frame" x="20" y="323.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1Uj-fA-My4" firstAttribute="trailing" secondItem="LGu-L0-vmE" secondAttribute="trailing" constant="20" id="JV5-k1-lKM"/>
-                            <constraint firstItem="LGu-L0-vmE" firstAttribute="top" secondItem="r16-Ju-ZEs" secondAttribute="bottom" constant="40" id="S4e-uJ-kK1"/>
+                            <constraint firstItem="sHF-fM-A68" firstAttribute="centerY" secondItem="1Uj-fA-My4" secondAttribute="centerY" id="1dx-3k-flQ"/>
+                            <constraint firstItem="dJa-Rg-uyn" firstAttribute="top" secondItem="r16-Ju-ZEs" secondAttribute="bottom" constant="20" id="A5Q-o1-rlu"/>
+                            <constraint firstItem="dJa-Rg-uyn" firstAttribute="leading" secondItem="1Uj-fA-My4" secondAttribute="leading" constant="20" id="IQG-VV-j97"/>
+                            <constraint firstItem="1Uj-fA-My4" firstAttribute="trailing" secondItem="dJa-Rg-uyn" secondAttribute="trailing" constant="20" id="RPk-WH-juN"/>
                             <constraint firstItem="1Uj-fA-My4" firstAttribute="trailing" secondItem="r16-Ju-ZEs" secondAttribute="trailing" constant="20" id="SwM-gZ-Ph9"/>
                             <constraint firstItem="r16-Ju-ZEs" firstAttribute="top" secondItem="1Uj-fA-My4" secondAttribute="top" constant="24" id="Xwm-xg-Cxg"/>
-                            <constraint firstItem="LGu-L0-vmE" firstAttribute="leading" secondItem="1Uj-fA-My4" secondAttribute="leading" constant="20" id="b4i-p0-Pcw"/>
                             <constraint firstItem="r16-Ju-ZEs" firstAttribute="leading" secondItem="1Uj-fA-My4" secondAttribute="leading" constant="20" id="hjS-Za-hcD"/>
+                            <constraint firstItem="sHF-fM-A68" firstAttribute="centerX" secondItem="1Uj-fA-My4" secondAttribute="centerX" id="xPQ-N6-UKb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Uj-fA-My4"/>
                     </view>
@@ -248,10 +252,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activeLabel" destination="HKS-5f-kQO" id="HI8-oY-HB5"/>
+                        <outlet property="activityIndicator" destination="sHF-fM-A68" id="NEo-E7-X07"/>
                         <outlet property="casesLabel" destination="ZPj-r8-hyz" id="fdg-BS-6WK"/>
-                        <outlet property="chartView" destination="LGu-L0-vmE" id="p8r-PK-ZHd"/>
                         <outlet property="criticalCasesLabel" destination="S5k-hd-a1P" id="hTQ-dc-PLI"/>
+                        <outlet property="dataStackView" destination="r16-Ju-ZEs" id="Ts9-8g-FBF"/>
                         <outlet property="deathsLabel" destination="Ubv-JX-0Sr" id="fS5-rA-GRJ"/>
+                        <outlet property="graphTitleLabel" destination="dJa-Rg-uyn" id="gPX-2g-oYo"/>
                         <outlet property="recoveredLabel" destination="m2f-5b-V58" id="XhG-dE-NcT"/>
                         <outlet property="todaysCasesLabel" destination="ckv-Y1-8sV" id="LE8-1N-R9d"/>
                         <outlet property="todaysDeathLabel" destination="RPd-AG-cup" id="69d-Yc-zDN"/>
