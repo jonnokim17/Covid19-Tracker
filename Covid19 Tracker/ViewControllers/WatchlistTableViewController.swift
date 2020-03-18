@@ -11,9 +11,7 @@ import UIKit
 class WatchlistTableViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    var watchlistDataArray = CovidDataClient.shared.watchlistData
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +22,6 @@ class WatchlistTableViewController: UIViewController {
     }
     
     @objc private func watchlistUpdated() {
-        watchlistDataArray = CovidDataClient.shared.watchlistData
         tableView.reloadData()
     }
     
@@ -54,7 +51,7 @@ class WatchlistTableViewController: UIViewController {
 extension WatchlistTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "watchlistCell", for: indexPath)
-        let watchlistData = watchlistDataArray[indexPath.row]
+        let watchlistData = CovidDataClient.shared.watchlistData[indexPath.row]
                 
         let countryCode = locale(for: watchlistData.country)
         cell.textLabel?.text = "\(watchlistData.country) \(flag(country: countryCode))"
@@ -64,6 +61,6 @@ extension WatchlistTableViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return watchlistDataArray.count
+        return CovidDataClient.shared.watchlistData.count
     }
 }
