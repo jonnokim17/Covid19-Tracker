@@ -127,6 +127,18 @@ class CovidDataClient {
         getWorldwideData(request: request, completion: completion)
     }
     
+    func getSelectedCountryData(country: String, completion: @escaping (Result<CovidData, Error>) -> Void ) {
+        let urlString = "https://coronavirus-19-api.herokuapp.com/countries/\(country)"
+        
+        guard let url = URL(string: urlString) else {
+            let error = NSError(domain: "", code: -1, userInfo: nil)
+            return completion(.failure(error))
+        }
+        
+        let request = setupRequest(method: "GET", url: url, bodyData: nil)
+        getSelectedCountryInfo(request: request, completion: completion)
+    }
+    
     fileprivate func setupRequest(method: String, url: URL, bodyData: Data?) -> URLRequest {
         var request = URLRequest(url: url)
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -260,6 +272,42 @@ class CovidDataClient {
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     let worldWideData = WorldwideData(json: json)
                     completion(.success(worldWideData))
+                }
+                
+            } catch let error {
+                print(error)
+                return
+            }
+        }
+        task.resume()
+    }
+    
+    fileprivate func getSelectedCountryInfo(request: URLRequest, completion: @escaping (Result<CovidData, Error>) -> Void) {
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let error = NSError(domain: "", code: -1, userInfo: nil)
+            guard let response = response as? HTTPURLResponse else {
+                return completion(.failure(error))
+            }
+            
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                guard (200 ..< 300) ~= response.statusCode else {
+                    switch response.statusCode {
+                    case 400:
+                        return completion(.failure(error))
+                    case 401:
+                        return completion(.failure(error))
+                    default:
+                        return completion(.failure(error))
+                    }
+                }
+                
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    let selectedCountryData = CovidData(json: json)
+                    completion(.success(selectedCountryData))
                 }
                 
             } catch let error {
