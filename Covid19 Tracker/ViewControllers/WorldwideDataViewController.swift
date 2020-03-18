@@ -137,9 +137,14 @@ extension WorldwideDataViewController: CLLocationManagerDelegate {
                 
                 let countryCode = self.locale(for: country)
                 DispatchQueue.main.async {
-                    self.currentCountry = country
-                    self.countryLabel.text = "\(country) \(self.flag(country: countryCode))"
-                    self.updateCountryDataLabels(country: country)
+                    if country == "United States" {
+                        self.currentCountry = "US"
+                    } else {
+                        self.currentCountry = country
+                    }
+                    
+                    self.countryLabel.text = "\(self.currentCountry) \(self.flag(country: countryCode))"
+                    self.updateCountryDataLabels(country: self.currentCountry)
                 }
             }
         }
