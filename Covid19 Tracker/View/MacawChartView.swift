@@ -39,8 +39,8 @@ class MacawChartView: MacawView {
     }
     
     private static func addYAxisItems() -> [Node] {
-        let maxLines = 6
-//        let lineInterval = Int(maxValue/maxLines)
+        let maxLines = maxValue == 200 ? 5 : 6
+        let lineInterval = Int(maxValue/maxLines)
         let yAxisHeight: Double = 200
         let lineSpacing: Double = 30
         
@@ -49,11 +49,11 @@ class MacawChartView: MacawView {
         for i in 1...maxLines {
             let y = yAxisHeight - (Double(i) * lineSpacing)
             let valueLine = Line(x1: -5, y1: y, x2: lineWidth, y2: y).stroke(fill: Color.white.with(a: 0.10))
-//            let valueText = Text(text: "\(i * lineInterval)", align: .max, baseline: .mid, place: .move(dx: -10, dy: y))
-//            valueText.fill = Color.white
+            let valueText = Text(text: "\(i * lineInterval)", align: .max, baseline: .mid, place: .move(dx: -10, dy: y))
+            valueText.fill = Color.white
             
             newNodes.append(valueLine)
-//            newNodes.append(valueText)
+            newNodes.append(valueText)
         }
         
         let yAxis = Line(x1: 0, y1: 0, x2: 0, y2: yAxisHeight).stroke(fill: Color.white.with(a: 0.25))
