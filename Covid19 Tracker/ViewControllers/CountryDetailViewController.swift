@@ -35,6 +35,10 @@ class CountryDetailViewController: UIViewController {
         recoveredLabel.text = "Recovered: \(covidData.recovered.withCommas())"
         activeLabel.text = "Active: \(covidData.active.withCommas())"
         criticalCasesLabel.text = "Confirmed Cases: \(covidData.critical.withCommas())"
+        
+        if CovidDataClient.shared.watchlistData.contains(where: { $0.country == covidData.country }) {
+            navigationItem.rightBarButtonItem = nil
+        }
     }
     
     @IBAction func onAddToWatchlist(_ sender: UIBarButtonItem) {
@@ -45,5 +49,10 @@ class CountryDetailViewController: UIViewController {
             currentWatchlist.append(covidData)
             CovidDataClient.shared.watchlistData = currentWatchlist
         }
+        
+        let alertController = UIAlertController(title: "Added to Watchlist", message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
     }
 }
