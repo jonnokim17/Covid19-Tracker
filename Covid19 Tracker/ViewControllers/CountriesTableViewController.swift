@@ -45,6 +45,14 @@ class CountriesTableViewController: UIViewController {
         getCovidDataAndRefreshData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectionIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectionIndexPath, animated: animated)
+        }
+    }
+    
     @objc private func refreshTableView() {
         getCovidDataAndRefreshData()
     }
@@ -64,7 +72,7 @@ class CountriesTableViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self?.tableView.reloadData()                
+                self?.tableView.reloadData()
             }
         }
     }

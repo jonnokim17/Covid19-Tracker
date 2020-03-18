@@ -21,6 +21,14 @@ class WatchlistTableViewController: UIViewController {
         tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectionIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectionIndexPath, animated: animated)
+        }
+    }
+    
     @objc private func watchlistUpdated() {
         tableView.reloadData()
     }
