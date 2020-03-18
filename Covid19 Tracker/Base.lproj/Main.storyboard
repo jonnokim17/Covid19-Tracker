@@ -96,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GES-5n-2cw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102.898550724638" y="825"/>
+            <point key="canvasLocation" x="3013.04347826087" y="825"/>
         </scene>
         <!--Countries-->
         <scene sceneID="vhL-0u-SvD">
@@ -223,7 +223,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Uj-fA-My4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="China" id="7U3-nI-d3I"/>
+                    <navigationItem key="navigationItem" title="China" id="7U3-nI-d3I">
+                        <barButtonItem key="rightBarButtonItem" title="Add to Watchlist" id="S30-KK-McO">
+                            <connections>
+                                <action selector="onAddToWatchlist:" destination="DEs-SQ-qTS" id="zd2-4b-den"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activeLabel" destination="HKS-5f-kQO" id="HI8-oY-HB5"/>
                         <outlet property="casesLabel" destination="ZPj-r8-hyz" id="fdg-BS-6WK"/>
@@ -250,6 +256,7 @@
                     <connections>
                         <segue destination="4wz-8M-u5U" kind="relationship" relationship="viewControllers" id="X4k-BS-eF4"/>
                         <segue destination="XFU-Fk-55A" kind="relationship" relationship="viewControllers" id="bfp-gk-Tu9"/>
+                        <segue destination="IH7-D0-C86" kind="relationship" relationship="viewControllers" id="rsZ-KG-NAg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dzl-iN-D2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -275,6 +282,67 @@
             </objects>
             <point key="canvasLocation" x="1355.072463768116" y="177.45535714285714"/>
         </scene>
+        <!--Watchlist-->
+        <scene sceneID="GBr-Km-ZJU">
+            <objects>
+                <viewController id="dBo-TL-T0e" customClass="WatchlistTableViewController" customModule="Covid19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Axw-zj-nJu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FVU-i4-MAV">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="watchlistCell" textLabel="tWP-vG-e79" detailTextLabel="EbN-MJ-jP5" style="IBUITableViewCellStyleSubtitle" id="e2B-Zi-dct">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e2B-Zi-dct" id="y10-E4-vog">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tWP-vG-e79">
+                                                    <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EbN-MJ-jP5">
+                                                    <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="dBo-TL-T0e" id="Tt2-k4-68p"/>
+                                    <outlet property="delegate" destination="dBo-TL-T0e" id="OHr-GY-b6l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FVU-i4-MAV" firstAttribute="leading" secondItem="lmR-OB-DwY" secondAttribute="leading" id="1v8-Es-9ff"/>
+                            <constraint firstItem="FVU-i4-MAV" firstAttribute="top" secondItem="lmR-OB-DwY" secondAttribute="top" id="7US-gc-FMd"/>
+                            <constraint firstItem="lmR-OB-DwY" firstAttribute="trailing" secondItem="FVU-i4-MAV" secondAttribute="trailing" id="A8D-rh-obW"/>
+                            <constraint firstItem="lmR-OB-DwY" firstAttribute="bottom" secondItem="FVU-i4-MAV" secondAttribute="bottom" id="csf-Mq-zOV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lmR-OB-DwY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Watchlist" id="WQ3-So-Y9v"/>
+                    <connections>
+                        <outlet property="tableView" destination="FVU-i4-MAV" id="fQU-B4-zfG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cap-PT-vIm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1181" y="1223"/>
+        </scene>
         <!--Global-->
         <scene sceneID="v1R-n6-BmR">
             <objects>
@@ -292,11 +360,31 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zoV-Cy-Ugx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1355.072463768116" y="825"/>
+            <point key="canvasLocation" x="2265.217391304348" y="825"/>
+        </scene>
+        <!--Watchlist-->
+        <scene sceneID="yvJ-yt-8kD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IH7-D0-C86" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Watchlist" image="eye.fill" catalog="system" id="pSz-DM-CVE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Ub-Gv-0iX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dBo-TL-T0e" kind="relationship" relationship="rootViewController" id="JFD-am-dOZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qar-71-eYi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="434.78260869565219" y="1223.4375"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
+        <image name="eye.fill" catalog="system" width="64" height="38"/>
         <image name="flag.fill" catalog="system" width="64" height="60"/>
         <image name="globe" catalog="system" width="64" height="60"/>
     </resources>

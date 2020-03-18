@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CovidData {
+struct CovidData: Codable {
     let country: String
     let cases: Int
     let todayCases: Int
@@ -57,7 +57,27 @@ struct WorldwideData {
 
 class CovidDataClient {
     static let shared = CovidDataClient()
+    private let watchlistDataKey = "watch_list_key"
     
+    var watchlistData: [CovidData] {
+        get {
+            if let userData = UserDefaults.standard.data(forKey: watchlistDataKey),
+                let watchlistData = try? JSONDecoder().decode([CovidData].self, from: userData) {
+                return watchlistData
+            }
+            
+            return []
+        }
+        
+        set(newWatchlistData) {
+            if let encoded = try? JSONEncoder().encode(newWatchlistData) {
+                UserDefaults.standard.setValue(encoded, forKey: watchlistDataKey)
+//                let inspectionStateDict: [String: [CovidData]] = ["updatedWatchlist": inspectionStatus]
+                NotificationCenter.default.post(name: Notification.Name("WatchlistUpdated"), object: nil)
+            }
+        }
+    }
+ 
     func getCovidData(completion: @escaping (Result<[CovidData], Error>) -> Void ) {
         let urlString = "https://coronavirus-19-api.herokuapp.com/countries"
         

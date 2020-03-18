@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90C77E612421AE1900119661 /* WatchlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C77E602421AE1900119661 /* WatchlistTableViewController.swift */; };
 		90DBEFBC24215214002C4110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEFBB24215214002C4110 /* AppDelegate.swift */; };
 		90DBEFBE24215214002C4110 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEFBD24215214002C4110 /* SceneDelegate.swift */; };
 		90DBEFC024215214002C4110 /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBEFBF24215214002C4110 /* CountriesTableViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90C77E602421AE1900119661 /* WatchlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewController.swift; sourceTree = "<group>"; };
 		90DBEFB824215214002C4110 /* Covid19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DBEFBB24215214002C4110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90DBEFBD24215214002C4110 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				90DBEFBF24215214002C4110 /* CountriesTableViewController.swift */,
 				90DBEFED2421859B002C4110 /* CountryDetailViewController.swift */,
 				90DBEFEF2421A2CC002C4110 /* WorldwideDataViewController.swift */,
+				90C77E602421AE1900119661 /* WatchlistTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				90DBEFC024215214002C4110 /* CountriesTableViewController.swift in Sources */,
 				90DBEFBC24215214002C4110 /* AppDelegate.swift in Sources */,
+				90C77E612421AE1900119661 /* WatchlistTableViewController.swift in Sources */,
 				90DBEFF02421A2CC002C4110 /* WorldwideDataViewController.swift in Sources */,
 				90DBEFF22421A7AD002C4110 /* Extension+Int.swift in Sources */,
 				90DBEFEC2421532A002C4110 /* CovidDataClient.swift in Sources */,

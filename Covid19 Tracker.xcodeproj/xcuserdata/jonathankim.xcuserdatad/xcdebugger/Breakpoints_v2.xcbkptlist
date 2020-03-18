@@ -18,38 +18,6 @@
             endingLineNumber = "83"
             landmarkName = "isSearchBarEmpty()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D3E52377-C53F-4193-8BAA-85D3439D99FE - ddcf2c3f89f9e4cf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Covid19_Tracker.CountriesTableViewController.(filteredContentForMostCases in _A57F135414267A94009CBD02DFC44340)(searchText: Swift.String, scope: Swift.String) -&gt; ()"
-                  moduleName = "Covid19 Tracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonathankim/Documents/Covid19_Tracker/Covid19%20Tracker/Covid19%20Tracker/CountriesTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "367">
-               </Location>
-               <Location
-                  uuid = "D3E52377-C53F-4193-8BAA-85D3439D99FE - a33f540d690656cb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Covid19_Tracker.CovidData) -&gt; Swift.Bool in Covid19_Tracker.CountriesTableViewController.(filteredContentForMostCases in _A57F135414267A94009CBD02DFC44340)(searchText: Swift.String, scope: Swift.String) -&gt; ()"
-                  moduleName = "Covid19 Tracker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonathankim/Documents/Covid19_Tracker/Covid19%20Tracker/Covid19%20Tracker/CountriesTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "219">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -114,6 +82,54 @@
             endingLineNumber = "114"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95F11A78-A70C-45FA-BAB3-DEC8F6F9C1B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Covid19 Tracker/ViewControllers/CountryDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "onAddToWatchlist(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E3A6664-8164-4646-969F-322C0270E4CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Covid19 Tracker/ViewControllers/CountryDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "onAddToWatchlist(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D612EF77-AE1B-41F3-B287-87B0587D2B5D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Covid19 Tracker/Model/CovidDataClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "watchlistData"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -36,4 +36,14 @@ class CountryDetailViewController: UIViewController {
         activeLabel.text = "Active: \(covidData.active.withCommas())"
         criticalCasesLabel.text = "Confirmed Cases: \(covidData.critical.withCommas())"
     }
+    
+    @IBAction func onAddToWatchlist(_ sender: UIBarButtonItem) {
+        if CovidDataClient.shared.watchlistData.isEmpty {
+            CovidDataClient.shared.watchlistData = [covidData]
+        } else {
+            var currentWatchlist = CovidDataClient.shared.watchlistData
+            currentWatchlist.append(covidData)
+            CovidDataClient.shared.watchlistData = currentWatchlist
+        }
+    }
 }
