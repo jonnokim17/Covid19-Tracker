@@ -56,7 +56,7 @@
 		9021641F2422CBE600DBAEC8 /* Extension+UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIDevice.swift"; sourceTree = "<group>"; };
 		90C77E602421AE1900119661 /* WatchlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewController.swift; sourceTree = "<group>"; };
 		90CDDB2B2421D90900D1AB47 /* MacawChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacawChartView.swift; sourceTree = "<group>"; };
-		90DBEFB824215214002C4110 /* Covid19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90DBEFB824215214002C4110 /* CovWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90DBEFBB24215214002C4110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90DBEFBD24215214002C4110 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		90DBEFBF24215214002C4110 /* CountriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		90DBEFB924215214002C4110 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				90DBEFB824215214002C4110 /* Covid19 Tracker.app */,
+				90DBEFB824215214002C4110 /* CovWatch.app */,
 				90DBEFCE24215215002C4110 /* Covid19 TrackerTests.xctest */,
 				90DBEFD924215215002C4110 /* Covid19 TrackerUITests.xctest */,
 			);
@@ -243,7 +243,7 @@
 			);
 			name = "Covid19 Tracker";
 			productName = "Covid19 Tracker";
-			productReference = 90DBEFB824215214002C4110 /* Covid19 Tracker.app */;
+			productReference = 90DBEFB824215214002C4110 /* CovWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 		90DBEFCD24215215002C4110 /* Covid19 TrackerTests */ = {
@@ -654,8 +654,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jonno.Covid19-Tracker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jonno.CovWatch;
+				PRODUCT_NAME = CovWatch;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -673,8 +673,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jonno.Covid19-Tracker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jonno.CovWatch;
+				PRODUCT_NAME = CovWatch;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
