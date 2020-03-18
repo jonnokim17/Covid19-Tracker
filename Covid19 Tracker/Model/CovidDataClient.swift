@@ -58,19 +58,19 @@ struct WorldwideData {
 struct GraphData {
     let date: String
     let confirmed: Int
-    let deaths: Int
-    let recovered: Int
+//    let deaths: Int
+//    let recovered: Int
     
     init(json: [String: Any]) {
         let date = json["date"] as? String ?? ""
         let confirmed = json["confirmed"] as? Int ?? 0
-        let deaths = json["deaths"] as? Int ?? 0
-        let recovered = json["recovered"] as? Int ?? 0
+//        let deaths = json["deaths"] as? Int ?? 0
+//        let recovered = json["recovered"] as? Int ?? 0
         
         self.date = date
         self.confirmed = confirmed
-        self.deaths = deaths
-        self.recovered = recovered
+//        self.deaths = deaths
+//        self.recovered = recovered
     }
 }
 

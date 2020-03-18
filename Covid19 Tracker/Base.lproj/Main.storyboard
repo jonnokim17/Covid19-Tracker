@@ -179,52 +179,62 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cases: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPj-r8-hyz">
                                         <rect key="frame" x="0.0" y="0.0" width="126" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Cases: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-Y1-8sV">
                                         <rect key="frame" x="0.0" y="28.5" width="147.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deaths: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubv-JX-0Sr">
                                         <rect key="frame" x="0.0" y="57" width="92" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Deaths: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPd-AG-cup">
                                         <rect key="frame" x="0.0" y="85.5" width="154.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovered: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2f-5b-V58">
                                         <rect key="frame" x="0.0" y="114" width="118.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKS-5f-kQO">
                                         <rect key="frame" x="0.0" y="142.5" width="84.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Critical Cases: 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5k-hd-a1P">
                                         <rect key="frame" x="0.0" y="171" width="142" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGu-L0-vmE" customClass="MacawChartView" customModule="Covid19_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="20" y="343.5" width="374" height="374"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LGu-L0-vmE" secondAttribute="height" multiplier="1:1" id="NcX-r0-fjK"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1Uj-fA-My4" firstAttribute="trailing" secondItem="LGu-L0-vmE" secondAttribute="trailing" constant="20" id="JV5-k1-lKM"/>
+                            <constraint firstItem="LGu-L0-vmE" firstAttribute="top" secondItem="r16-Ju-ZEs" secondAttribute="bottom" constant="40" id="S4e-uJ-kK1"/>
                             <constraint firstItem="1Uj-fA-My4" firstAttribute="trailing" secondItem="r16-Ju-ZEs" secondAttribute="trailing" constant="20" id="SwM-gZ-Ph9"/>
                             <constraint firstItem="r16-Ju-ZEs" firstAttribute="top" secondItem="1Uj-fA-My4" secondAttribute="top" constant="24" id="Xwm-xg-Cxg"/>
+                            <constraint firstItem="LGu-L0-vmE" firstAttribute="leading" secondItem="1Uj-fA-My4" secondAttribute="leading" constant="20" id="b4i-p0-Pcw"/>
                             <constraint firstItem="r16-Ju-ZEs" firstAttribute="leading" secondItem="1Uj-fA-My4" secondAttribute="leading" constant="20" id="hjS-Za-hcD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Uj-fA-My4"/>
@@ -239,6 +249,7 @@
                     <connections>
                         <outlet property="activeLabel" destination="HKS-5f-kQO" id="HI8-oY-HB5"/>
                         <outlet property="casesLabel" destination="ZPj-r8-hyz" id="fdg-BS-6WK"/>
+                        <outlet property="chartView" destination="LGu-L0-vmE" id="p8r-PK-ZHd"/>
                         <outlet property="criticalCasesLabel" destination="S5k-hd-a1P" id="hTQ-dc-PLI"/>
                         <outlet property="deathsLabel" destination="Ubv-JX-0Sr" id="fS5-rA-GRJ"/>
                         <outlet property="recoveredLabel" destination="m2f-5b-V58" id="XhG-dE-NcT"/>
@@ -396,6 +407,6 @@
         <image name="globe" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zp1-eF-QqZ"/>
+        <segue reference="7kj-Tw-Lxg"/>
     </inferredMetricsTieBreakers>
 </document>

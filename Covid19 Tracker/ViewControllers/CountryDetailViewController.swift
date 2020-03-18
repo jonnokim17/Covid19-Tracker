@@ -17,6 +17,7 @@ class CountryDetailViewController: UIViewController {
     @IBOutlet weak var recoveredLabel: UILabel!
     @IBOutlet weak var activeLabel: UILabel!
     @IBOutlet weak var criticalCasesLabel: UILabel!
+    @IBOutlet weak var chartView: MacawChartView!
     
     var covidData: CovidData!
     
@@ -24,15 +25,16 @@ class CountryDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        
-//        CovidDataClient.shared.getFiveDayData(country: covidData.country) { (result) in
-//            switch result {
-//            case .success(let graphDataArray):
-//                print(graphDataArray)                
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        chartView.contentMode = .scaleAspectFit
+        MacawChartView.playAnimations()
+        CovidDataClient.shared.getFiveDayData(country: covidData.country) { (result) in
+            switch result {
+            case .success(let graphDataArray):
+                print(graphDataArray)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func setupUI() {
