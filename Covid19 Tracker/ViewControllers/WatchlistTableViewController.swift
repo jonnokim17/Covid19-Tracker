@@ -63,4 +63,17 @@ extension WatchlistTableViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CovidDataClient.shared.watchlistData.count
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            var currentWatchList = CovidDataClient.shared.watchlistData
+            currentWatchList.remove(at: indexPath.row)
+            CovidDataClient.shared.watchlistData = currentWatchList
+            tableView.reloadData()
+        }
+    }
 }
