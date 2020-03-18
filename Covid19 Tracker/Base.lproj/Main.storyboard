@@ -154,7 +154,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2yB-lS-1PU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Countries" id="5Yv-jI-C81"/>
+                    <navigationItem key="navigationItem" title="Countries" id="5Yv-jI-C81">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="9Sk-Pl-TVW">
+                            <connections>
+                                <action selector="onRefreshButton:" destination="SfB-R6-3ni" id="pY2-9P-pPk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="gDv-VG-Nke" id="L22-hT-R1V"/>
                         <outlet property="tableView" destination="hyr-xc-C6F" id="f1t-DY-Vrw"/>

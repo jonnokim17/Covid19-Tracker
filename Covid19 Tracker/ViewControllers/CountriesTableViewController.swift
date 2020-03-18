@@ -132,6 +132,10 @@ class CountriesTableViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func onRefreshButton(_ sender: UIBarButtonItem) {
+        getCovidDataAndRefreshData()
+    }
 }
 
 extension CountriesTableViewController: UITableViewDelegate, UITableViewDataSource {
