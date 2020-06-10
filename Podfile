@@ -4,7 +4,7 @@
 target 'Covid19 Tracker' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-pod "Macaw", "0.9.5"
+pod "Macaw", "0.9.6"
 
   # Pods for Covid19 Tracker
 
